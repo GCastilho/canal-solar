@@ -21,6 +21,7 @@ export async function fetchHtml(url) {
  * @param {string} url A url da página de artigos
  */
 export default async function fetchK2ArticlesPage(url) {
+	if (!url) throw 'URL for articles page not provided'
 	const articlesPage = await fetchHtml(url)
 	const itemList = articlesPage.getElementById('itemListPrimary')
 	const itemContainer = itemList.getElementsByClassName('itemContainer')

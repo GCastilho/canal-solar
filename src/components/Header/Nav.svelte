@@ -90,9 +90,9 @@
 
 <nav>
 	<ul class="row">
-		<li><a href="/index.php">Home</a></li>
+		<li><a href="/">Home</a></li>
 		<li class="dropdown">
-			<a href="/index.php/artigos">Artigos</a>
+			<a href="/artigos">Artigos</a>
 			<ul>
 				<li><a href="/index.php/artigos/artigos-tecnicos">Técnicos</a></li>
 				<li><a href="/index.php/artigos/opiniao">Opinião</a></li>
