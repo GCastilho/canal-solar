@@ -1,5 +1,10 @@
+<svelte:head>
+	<title>Canal Solar</title>
+</svelte:head>
+
 <script>
 	import Nav from '../components/Nav.svelte';
+	import Header from '../components/Header/index.svelte';
 
 	export let segment;
 </script>
@@ -15,7 +20,8 @@
 	}
 </style>
 
-<Nav {segment}/>
+<Header {segment}/>
+<!--<Nav {segment}/>-->
 
 <main>
 	<slot></slot>
