@@ -36,17 +36,18 @@ export default async function fetchK2ArticlesPage(url) {
 
 		items.push({
 			title: catItemTitle.innerText.trim(),
-			link: catItemTitle.href,
+			// A url dos artigos deveria ser relativa à página atual
+			link: catItemTitle.href.replace(/.+?index.php/, '').replace('/item', ''),
 			author: {
 				name: catItemAuthor.innerText,
-				link: catItemAuthor.href
+				link: catItemAuthor.href.replace(/.+?index.php/, '')
 			},
 			category: {
 				name: catItemCategory.innerText,
-				link: catItemCategory.href
+				link: catItemCategory.href.replace(/.+?index.php/, '')
 			},
 			thumbnail: {
-				src: catItemImage.src,
+				src: catItemImage.src.replace(/.+?index.php/, ''),
 				alt: catItemImage.alt
 			},
 			pubDate: catItemDateCreated.innerText.trim()

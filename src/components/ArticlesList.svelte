@@ -1,15 +1,22 @@
 <script>
-	//import fetchK2Articles from '../utils/fetchK2ArticlesFromPage.js'
 	import { onMount } from 'svelte'
 	import ArticleCard from './ArticleCard.svelte'
+
+	/** Array com match, replace para rodar na url dos artigos */
+	export let linkRegex = []
+	export let url = ''
 
 	let fetchK2Articles = undefined
 	onMount(async () => {
 		const module = await import('../utils/fetchK2ArticlesFromPage.js')
-		fetchK2Articles = module.default
+		fetchK2Articles = async () => {
+			const feed = await module.default(url)
+			feed.forEach(item => {
+				item.link = item.link.replace(...linkRegex)
+			})
+			return feed
+		}
 	})
-
-	export let url = ''
 </script>
 
 <style>

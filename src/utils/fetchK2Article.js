@@ -6,6 +6,7 @@ const parser = new DOMParser()
  * @returns {Document} Uma string html do conteúdo do artigo
  */
 export default async function fetchK2Article(url) {
+	if (!url) throw 'Article URL not provided'
 	const res = await fetch(url)
 	if (!res.ok) throw res
 	const contentType = res.headers.get('content-type')
