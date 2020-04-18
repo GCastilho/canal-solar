@@ -94,7 +94,7 @@
 		<li class="dropdown">
 			<a href="/artigos">Artigos</a>
 			<ul>
-				<li><a href="/index.php/artigos/artigos-tecnicos">Técnicos</a></li>
+				<li><a href="/artigos/tecnicos">Técnicos</a></li>
 				<li><a href="/index.php/artigos/opiniao">Opinião</a></li>
 			</ul>
 		</li>
