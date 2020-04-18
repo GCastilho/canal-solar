@@ -95,13 +95,13 @@
 			<a href="/artigos">Artigos</a>
 			<ul>
 				<li><a href="/artigos/tecnicos">Técnicos</a></li>
-				<li><a href="/index.php/artigos/opiniao">Opinião</a></li>
+				<li><a href="/artigos/opiniao">Opinião</a></li>
 			</ul>
 		</li>
-		<li><a href="/index.php/cursos">Cursos</a></li>
-		<li><a href="/index.php/noticias">Notícias</a></li>
+		<li><a href="/cursos">Cursos</a></li>
+		<li><a href="/noticias">Notícias</a></li>
 		<li class="dropdown">
-			<a href="/index.php/video">Vídeos</a>
+			<a href="/videos">Vídeos</a>
 			<ul class="video-list">
 				<svelte:component this={VideoFeed} />
 			</ul>
