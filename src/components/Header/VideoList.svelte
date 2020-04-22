@@ -15,7 +15,7 @@
 	}
 </style>
 
-{#await fetchFeed('index.php/video?format=feed', 4)}
+{#await fetchFeed('index.php/videos?format=feed', 4)}
 	<p>Fetching video feed</p>
 {:then videoFeed}
 	<div class="grid">

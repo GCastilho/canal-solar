@@ -37,17 +37,17 @@ export default async function fetchK2ArticlesPage(url) {
 		items.push({
 			title: catItemTitle.innerText.trim(),
 			// A url dos artigos deveria ser relativa à página atual
-			link: catItemTitle.href.replace(/.+?index.php/, '').replace('/item', ''),
+			link: catItemTitle.href.replace(/.+?canalsolar.com.br/, '').replace('/item', ''),
 			author: {
 				name: catItemAuthor.innerText,
-				link: catItemAuthor.href.replace(/.+?index.php/, '')
+				link: catItemAuthor.href.replace(/.+?canalsolar.com.br/, '')
 			},
 			category: {
 				name: catItemCategory.innerText,
-				link: catItemCategory.href.replace(/.+?index.php/, '')
+				link: catItemCategory.href.replace(/.+?canalsolar.com.br/, '')
 			},
 			thumbnail: {
-				src: catItemImage.src.replace(/.+?index.php/, ''),
+				src: catItemImage.src.replace(/.+?canalsolar.com.br/, ''),
 				alt: catItemImage.alt
 			},
 			pubDate: catItemDateCreated.innerText.trim()
