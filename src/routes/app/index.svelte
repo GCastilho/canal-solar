@@ -9,6 +9,8 @@
 	function dimensionar(event) {
 		dimensionamento = event.target.consumo.value
 	}
+
+	const scrollIntoView = e => e.scrollIntoView({ behavior: 'smooth' })
 </script>
 
 <style>
@@ -25,17 +27,9 @@
 		box-shadow: 0px 5px 50px 0px rgba(18, 89, 93, 0.15);
 	}
 
-	.buttons {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-	}
-
-	.buttons > button {
-		margin: 0 5px;
-	}
-
 	button {
 		display: block;
+		width: 100%;
 		border-radius: 4px;
 		border: none;
 		background-color: #133980;
@@ -51,25 +45,28 @@
 </style>
 
 <div class="container">
+	<div use:scrollIntoView>
+		<h2>Selecione o seu estado:</h2>
+		<Mapa on:click="{event => estado = event.detail}" />
+	</div>
+
 	{#if estado}
-		<div in:fade="{{delay: 250}}" out:fade="{{duration: 250}}">
+		<div in:fade="{{delay: 250}}" use:scrollIntoView>
 			<h2>Você selecionou {estado}</h2>
 			<form on:submit|preventDefault="{dimensionar}">
+				<h3>Informe seus dados e receba os resultados do seu dimensionamento</h3>
 				<FancyInput type="number" id="consumo">Digite seu consumo de energia</FancyInput>
 
-				<div class="buttons">
-					<button on:click|preventDefault="{() => estado = ''}">Voltar</button>
-					<button type="submit">Dimensionar</button>
-				</div>
+				<FancyInput type="text" id="name">Informe seu nome</FancyInput>
+				<FancyInput type="email" id="email">Informe seu email</FancyInput>
+				<FancyInput type="tel" id="telefone">Informe seu telefone</FancyInput>
+
+				<button type="submit">Dimensionar</button>
 			</form>
-			{#if dimensionamento}
-				<h3 transition:fade>O resultado do seu dimensionamento foi: {dimensionamento}</h3>
-			{/if}
 		</div>
-	{:else}
-		<div out:fade="{{duration: 250}}" in:fade="{{delay: 250}}">
-			<h2>Selecione o seu estado:</h2>
-			<Mapa on:click="{event => estado = event.detail}" />
-		</div>
+	{/if}
+
+	{#if dimensionamento}
+		<h2 transition:fade style="margin-top: 50px;" use:scrollIntoView>O resultado do seu dimensionamento foi: {dimensionamento}</h2>
 	{/if}
 </div>
