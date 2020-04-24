@@ -91,6 +91,7 @@
 <nav>
 	<ul class="row">
 		<li><a href="/">Home</a></li>
+		<li><a href="/app">App</a></li>
 		<li class="dropdown">
 			<a href="/artigos">Artigos</a>
 			<ul>
