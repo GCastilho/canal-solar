@@ -110,8 +110,8 @@
 			<a href="javascript:void(0)">Seções especiais</a>
 			<ul>
 				<li><a href="/index.php/guia-de-empresas/fabricantes">Downloads</a></li>
-				<li><a href="/index.php/secoes/reviews">Avaliações</a></li>
-				<li><a href="/index.php/secoes/entrevistas">Entrevistas</a></li>
+				<li><a href="/secoes/reviews">Avaliações</a></li>
+				<li><a href="/secoes/entrevistas">Entrevistas</a></li>
 				<li><a href="/index.php/secoes/forum-canal-solar">Fórum</a></li>
 				<li class="dropright">
 					<a href="/index.php/secoes/eventos">Eventos</a>
@@ -119,6 +119,8 @@
 						<li><a href="/index.php/secoes/eventos/workshops">Workshops</a></li>
 					</ul>
 				</li>
+				<li><a href="/secoes/webinars">Webinars</a></li>
+				<li><a href="/secoes/podcasts">Podcasts</a></li>
 			</ul>
 		</li>
 		<li class="dropdown">

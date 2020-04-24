@@ -52,6 +52,6 @@
 		</div>
 	{:catch err}
 		<h2>Error fetching feed</h2>
-		<p>{err}</p>
+		<p>{err.statusText}</p>
 	{/await}
 {/if}
