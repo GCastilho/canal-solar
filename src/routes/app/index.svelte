@@ -1,9 +1,11 @@
 <script>
 	import { fade } from 'svelte/transition'
 	import FancyInput from '../../components/FancyInput.svelte'
-	import Mapa from './_mapa.svelte'
+	import Mapa from './_components/mapa.svelte'
+	import SeletorCidade from './_components/SeletorCidade.svelte'
 
-	$: estado = ''
+	$: estado = {}
+	$: cidade = ''
 	$: dimensionamento = ''
 
 	function dimensionar(event) {
@@ -16,6 +18,8 @@
 <style>
 	.container {
 		text-align: center;
+		max-width: 800px;
+		margin: 0 auto;
 	}
 
 	form {
@@ -46,11 +50,27 @@
 
 <div class="container">
 	<div use:scrollIntoView>
-		<h2>Selecione o seu estado:</h2>
+		<h1>Olá! Bem-vindo(a) ao simulador do Canal Solar</h1>
+		<p>Nós vamos te ajudar a economizar na sua conta de energia. Nossa ferramenta gratuita vai analisar sua conta de energia e dimensionar o sistema de energia solar ideal para sua residência</p>
+		<h2 style="margin-top: 30px;">Em qual estado você mora?</h2>
 		<Mapa on:click="{event => estado = event.detail}" />
 	</div>
 
-	{#if estado}
+	{#if estado.id}
+		<div use:scrollIntoView>
+			<SeletorCidade bind:estado={estado} bind:cidade={cidade} />
+		</div>
+	{/if}
+
+	{#if cidade}
+		<div use:scrollIntoView>
+			<h2>Qual é a sua concessionária de energia elétrica?</h2>
+			<p>Essa informação é importante, mas deixe em branco se você não souber</p>
+			<p>insira box de concessionária aqui</p>
+		</div>
+	{/if}
+
+	{#if false}
 		<div in:fade="{{delay: 250}}" use:scrollIntoView>
 			<h2>Você selecionou {estado}</h2>
 			<form on:submit|preventDefault="{dimensionar}">
