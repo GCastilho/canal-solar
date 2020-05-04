@@ -12,7 +12,8 @@
 	$: concessionaria = ''
 	$: preco = ''
 
-	const scrollIntoView = e => e.scrollIntoView({ behavior: 'smooth' })
+	const scrollIntoView = node => node.scrollIntoView({ behavior: 'smooth' })
+	const centerInScreen = node => node.style.marginBottom = `${window.innerHeight / 2}px`
 </script>
 
 <style>
@@ -23,7 +24,7 @@
 	}
 </style>
 
-<div class="container">
+<div class="container" use:centerInScreen>
 	<div use:scrollIntoView>
 		<h1>Olá! Bem-vindo(a) ao simulador do Canal Solar</h1>
 		<p>Nós vamos te ajudar a economizar na sua conta de energia. Nossa ferramenta gratuita vai analisar sua conta de energia e dimensionar o sistema de energia solar ideal para sua residência</p>
@@ -32,25 +33,25 @@
 	</div>
 
 	{#if estado.id}
-		<div use:scrollIntoView>
+		<div in:fade use:scrollIntoView>
 			<SeletorCidade bind:estado={estado} bind:cidade={cidade} />
 		</div>
 	{/if}
 
 	{#if cidade}
-		<div use:scrollIntoView>
+		<div in:fade use:scrollIntoView>
 			<SeletorConcessionaria bind:concessionaria />
 		</div>
 	{/if}
 
 	{#if concessionaria}
-		<div use:scrollIntoView>
+		<div in:fade use:scrollIntoView>
 			<SeletorPreco bind:preco />
 		</div>
 	{/if}
 
 	{#if preco}
-		<div in:fade="{{delay: 250}}" use:scrollIntoView>
+		<div in:fade="{{delay: 100}}" use:scrollIntoView>
 			<FormDadosCliente bind:dimensionamento />
 		</div>
 	{/if}
