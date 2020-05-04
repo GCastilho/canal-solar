@@ -1,0 +1,49 @@
+<script>
+	import FancyInput from '../../../components/FancyInput.svelte'
+	export let dimensionamento
+
+	function dimensionar(event) {
+		dimensionamento = event.target.name.value
+	}
+</script>
+
+<style>
+	form {
+		max-width: 500px;
+		margin: 0 auto;
+		border: 1px solid red;
+		padding: 20px;
+		border-radius: 6px;
+		box-shadow: 0px 5px 50px 0px rgba(18, 89, 93, 0.15);
+	}
+
+	button {
+		display: block;
+		width: 100%;
+		border-radius: 4px;
+		border: none;
+		background-color: #133980;
+		color: #ffffff;
+		text-transform: uppercase;
+		height: 50px;
+		line-height: 50px;
+		font-size: 14px;
+		letter-spacing: .13em;
+		text-align: center;
+		margin-bottom: 5px;
+	}
+</style>
+
+<h2>Parabéns! Você está a poucos passos de saber como economizar energia</h2>
+<form on:submit|preventDefault="{dimensionar}">
+	<h3>Por favor digite abaixo o seu email e o seu telefone</h3>
+	<p>
+		Após apertar o botão “Enviar”, você vai visualizar o relatório produzido pelo simulador aqui na tela e vai receber no seu email: uma cópia deste relatório e um guia sobre instalação de energia solar, com tudo o que você precisa saber para contratar uma empresa de energia solar com toda a segurança
+	</p>
+
+	<FancyInput type="text" id="name">Informe seu nome</FancyInput>
+	<FancyInput type="email" id="email">Informe seu email</FancyInput>
+	<FancyInput type="tel" id="telefone">Informe seu telefone</FancyInput>
+
+	<button type="submit">Enviar</button>
+</form>
