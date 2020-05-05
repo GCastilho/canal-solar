@@ -17,7 +17,7 @@
 </style>
 
 <div>
-	<a href="/">
-		<img src="/images/2020/01/12/logo_100px.png" alt="Logo" title="Canal Solar">
+	<a href=".">
+		<img src="images/2020/01/12/logo_100px.png" alt="Logo" title="Canal Solar">
 	</a>
 </div>

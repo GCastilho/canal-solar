@@ -90,45 +90,47 @@
 
 <nav>
 	<ul class="row">
-		<li><a href="/">Home</a></li>
-		<li><a href="/app">App</a></li>
+		<li><a href=".">Home</a></li>
+		<li><a href="app">App</a></li>
 		<li class="dropdown">
-			<a href="/artigos">Artigos</a>
+			<a href="artigos">Artigos</a>
 			<ul>
-				<li><a href="/artigos/tecnicos">Técnicos</a></li>
-				<li><a href="/artigos/opiniao">Opinião</a></li>
+				<li><a href="artigos/tecnicos">Técnicos</a></li>
+				<li><a href="artigos/opiniao">Opinião</a></li>
 			</ul>
 		</li>
-		<li><a href="/cursos">Cursos</a></li>
-		<li><a href="/noticias">Notícias</a></li>
+		<li><a href="cursos">Cursos</a></li>
+		<li><a href="noticias">Notícias</a></li>
 		<li class="dropdown">
-			<a href="/videos">Vídeos</a>
+			<a href="videos">Vídeos</a>
 			<ul class="video-list">
 				<svelte:component this={VideoFeed} />
 			</ul>
 		</li>
-		<li class="dropdown">
-			<a href="javascript:void(0)">Seções especiais</a>
-			<ul>
-				<li><a href="/index.php/guia-de-empresas/fabricantes">Downloads</a></li>
-				<li><a href="/index.php/secoes/reviews">Avaliações</a></li>
-				<li><a href="/index.php/secoes/entrevistas">Entrevistas</a></li>
-				<li><a href="/index.php/secoes/forum-canal-solar">Fórum</a></li>
-				<li class="dropright">
-					<a href="/index.php/secoes/eventos">Eventos</a>
-					<ul>
-						<li><a href="/index.php/secoes/eventos/workshops">Workshops</a></li>
-					</ul>
-				</li>
-			</ul>
-		</li>
-		<li class="dropdown">
-			<a href="/index.php/guia-de-empresas">Guia de empresas</a>
-			<ul>
-				<li><a href="/index.php/guia-de-empresas/distribuidores">Distribuidores</a></li>
-				<li><a href="/index.php/guia-de-empresas/integradores">Integradores</a></li>
-				<li><a href="/index.php/guia-de-empresas/fabricantes">Fabricantes</a></li>
-			</ul>
-		</li>
+		<!--
+			<li class="dropdown">
+				<a href="javascript:void(0)">Seções especiais</a>
+				<ul>
+					<li><a href="/index.php/guia-de-empresas/fabricantes">Downloads</a></li>
+					<li><a href="/index.php/secoes/reviews">Avaliações</a></li>
+					<li><a href="/index.php/secoes/entrevistas">Entrevistas</a></li>
+					<li><a href="/index.php/secoes/forum-canal-solar">Fórum</a></li>
+					<li class="dropright">
+						<a href="/index.php/secoes/eventos">Eventos</a>
+						<ul>
+							<li><a href="/index.php/secoes/eventos/workshops">Workshops</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li class="dropdown">
+				<a href="/index.php/guia-de-empresas">Guia de empresas</a>
+				<ul>
+					<li><a href="/index.php/guia-de-empresas/distribuidores">Distribuidores</a></li>
+					<li><a href="/index.php/guia-de-empresas/integradores">Integradores</a></li>
+					<li><a href="/index.php/guia-de-empresas/fabricantes">Fabricantes</a></li>
+				</ul>
+			</li>
+		-->
 	</ul>
 </nav>
