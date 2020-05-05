@@ -22,6 +22,10 @@
 		max-width: 800px;
 		margin: 0 auto;
 	}
+
+	.container > * {
+		margin-bottom: 70px;
+	}
 </style>
 
 <div class="container" use:centerInScreen>
