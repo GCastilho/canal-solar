@@ -18,14 +18,20 @@
 		border: 1px solid #aaa;
 		box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
 		border-radius: .5em;
-		background-color: #BFBDFF;
+		background-color: #A0A0A022;
+	}
+
+	/* CSS do triângulo lateral do select */
+	select {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+		background-repeat: no-repeat;
+		background-position-x: 100%;
+		background-position-y: 5px;
 	}
 
 	select:focus {
-		border-color: #aaa;
-		box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
-		box-shadow: 0 0 0 3px -moz-mac-focusring;
-		color: #222;
 		outline: none;
 	}
 </style>

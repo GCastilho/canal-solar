@@ -4,11 +4,11 @@
 	const dispatch = createEventDispatcher()
 
 	async function handleClick(event) {
-		const attributes = event.path[1].attributes
+		const a = event.target.parentElement
 		dispatch('click', {
-			id: attributes.getNamedItem('code').value,
-			nome: attributes.getNamedItem('name').value,
-			sigla: attributes.getNamedItem('xlink:href').value.slice(1)
+			id: a.getAttribute('code'),
+			nome: a.getAttribute('name'),
+			sigla: a.getAttribute('xlink:href').slice(1)
 		})
 	}
 </script>
