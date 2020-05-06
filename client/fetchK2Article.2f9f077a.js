@@ -1,0 +1,1 @@
+const t=new DOMParser;export default async function(e){if(!e)throw"Article URL not provided";const n=await fetch(e);if(!n.ok)throw n;const o=n.headers.get("content-type");if(!o.includes("text/html"))throw`expected content-type to include 'text/html', but found ${o}`;const r=await n.text();return t.parseFromString(r,"text/html").getElementById("k2Container").innerHTML}
