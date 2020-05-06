@@ -4,19 +4,12 @@
 	const dispatch = createEventDispatcher()
 
 	async function handleClick(event) {
-		const code = event.path[1].attributes[3].value
-		try {
-			const res = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${code}`)
-			const estado = await res.json()
-			dispatch('click', estado)
-		} catch (_err) {
-			// Dispara uma versão do evento com os dados que temos
-			dispatch('click', {
-				id: code,
-				nome: event.path[1].attributes[2].value,
-				sigla: event.path[1].attributes[0].value.slice(1)
-			})
-		}
+		const attributes = event.path[1].attributes
+		dispatch('click', {
+			id: attributes.getNamedItem('code').value,
+			nome: attributes.getNamedItem('name').value,
+			sigla: attributes.getNamedItem('xlink:href').value.slice(1)
+		})
 	}
 </script>
 

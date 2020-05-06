@@ -9,6 +9,7 @@ const dev = NODE_ENV === 'development';
 
 express()
 	.use(
+		process.env.NODE_ENV == 'pages' ? '/canal-solar' : '',
 		proxy('https://canalsolar.com.br', {
 			filter: req => req.path.includes('index.php')
 			|| req.path.includes('/images')

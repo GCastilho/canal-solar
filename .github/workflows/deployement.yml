@@ -1,0 +1,26 @@
+name: Build and Deploy
+on: [push]
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
+        with:
+          persist-credentials: false
+      - name: Setup NodeJS 12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: Install and Build 🔧
+        run: |
+          npm ci
+          npm run export:pages
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: ${{ secrets.API_TOKEN_GITHUB }}
+          BRANCH: gh-pages # The branch the action should deploy to.
+          FOLDER: __sapper__/export/canal-solar # The folder the action should deploy.

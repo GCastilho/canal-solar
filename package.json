@@ -6,6 +6,7 @@
     "dev": "sapper dev",
     "build": "sapper build",
     "export": "sapper export",
+    "export:pages": "env NODE_ENV=pages sapper export --basepath canal-solar",
     "start": "node __sapper__/build",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
