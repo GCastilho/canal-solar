@@ -6,7 +6,7 @@
 	async function handleClick(event) {
 		const a = event.target.parentElement
 		dispatch('click', {
-			id: a.getAttribute('code'),
+			id: +a.getAttribute('code'),
 			nome: a.getAttribute('name'),
 			sigla: a.getAttribute('xlink:href').slice(1)
 		})
