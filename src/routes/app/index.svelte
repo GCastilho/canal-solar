@@ -5,6 +5,7 @@
 	import SeletorConcessionaria from './_components/SeletorConcessionaria.svelte'
 	import SeletorPreco from './_components/SeletorPreco.svelte'
 	import FormDadosCliente from './_components/FormDadosCliente.svelte'
+	import Resultado from './_components/Resultado.svelte'
 
 	$: estado = {}
 	$: cidade = ''
@@ -61,15 +62,8 @@
 	{/if}
 
 	{#if dadosCliente.email}
-		<h2 transition:fade style="margin-top: 50px;" use:scrollIntoView>
-			Resultado
-		</h2>
-		<p>Recomendamos para você um sistema de energia solar com as seguintes características básicas</p>
-		<p>
-			Potência de pico: XXXXXX kW
-			Número aproximado de painéis solares: XX
-			Número aproximado de inversores: XX
-			Retorno do investimento: XX anos
-		</p>
+	<div in:fade use:scrollIntoView>
+		<Resultado />
+	</div>
 	{/if}
 </div>
