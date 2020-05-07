@@ -38,7 +38,7 @@
 
 	{#if estado.id}
 		<div in:fade use:scrollIntoView>
-			<SeletorCidade bind:estado bind:cidade />
+			<SeletorCidade bind:estado_id={estado.id} bind:cidade />
 		</div>
 	{/if}
 

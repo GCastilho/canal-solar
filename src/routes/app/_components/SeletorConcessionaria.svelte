@@ -13,7 +13,7 @@
 		width: 100%;
 		border-radius: 4px;
 		border: none;
-		background-color: #4EBE9E;
+		background-color: #0094d9;
 		color: #ffffff;
 		text-transform: uppercase;
 		height: 50px;

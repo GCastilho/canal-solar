@@ -1,8 +1,6 @@
 <script>
-	export let estado
+	export let estado_id
 	export let cidade
-
-	$: id = estado.id
 
 	async function fetchMunicipios(id) {
 		cidade = ''
@@ -10,7 +8,7 @@
 		return await res.json()
 	}
 
-	$: cities = fetchMunicipios(id)
+	$: cities = fetchMunicipios(estado_id)
 </script>
 
 <style>
