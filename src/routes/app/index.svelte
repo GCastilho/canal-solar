@@ -8,9 +8,9 @@
 
 	$: estado = {}
 	$: cidade = ''
-	$: dimensionamento = ''
 	$: concessionaria = ''
 	$: preco = ''
+	$: dadosCliente = {}
 
 	const scrollIntoView = node => node.scrollIntoView({ behavior: 'smooth' })
 	const centerInScreen = node => node.style.marginBottom = `${window.innerHeight / 2}px`
@@ -56,11 +56,11 @@
 
 	{#if preco}
 		<div in:fade="{{delay: 100}}" use:scrollIntoView>
-			<FormDadosCliente bind:dimensionamento />
+			<FormDadosCliente bind:dadosCliente />
 		</div>
 	{/if}
 
-	{#if dimensionamento}
+	{#if dadosCliente.email}
 		<h2 transition:fade style="margin-top: 50px;" use:scrollIntoView>
 			Resultado
 		</h2>
