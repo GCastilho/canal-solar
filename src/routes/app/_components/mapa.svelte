@@ -1,7 +1,10 @@
+<svelte:window on:resize={fitSvgIntoParent} />
+
 <script>
-	import { createEventDispatcher } from 'svelte'
+	import { createEventDispatcher, onMount } from 'svelte'
 
 	const dispatch = createEventDispatcher()
+	let svg
 
 	async function handleClick(event) {
 		const a = event.target.parentElement
@@ -11,44 +14,54 @@
 			sigla: a.getAttribute('xlink:href').slice(1)
 		})
 	}
+
+	function fitSvgIntoParent() {
+		const width = svg.parentElement.offsetWidth > 450
+			? 450
+			: svg.parentElement.offsetWidth
+		svg.style.width = width + 'px'
+		svg.style.height = width + 'px'
+	}
+
+	onMount(fitSvgIntoParent)
 </script>
 
 <style>
-	svg path {
+	path {
 		fill:#0094d9
 	}
 
-	svg text {
+	text {
 		fill: #fff;
 		font: 12px Arial-BoldMT, sans-serif;
 		cursor: pointer
 	}
 
-	svg a {
+	a {
 		text-decoration: none
 	}
 
-	svg a:hover {
+	a:hover {
 		cursor: pointer;
 		text-decoration: none
 	}
 
-	svg a:hover path{
+	a:hover path{
 		fill: #003399 !important
 	}
 
-	svg .circle {
+	.circle {
 		fill: #66ccff
 	}
 
-	svg a:hover .circle {
+	a:hover .circle {
 		fill: #003399 !important;
 		cursor: pointer
 	}
 </style>
 
 <!-- Mapa por Lucas Bassetti: https://github.com/LucasBassetti/mapa-brasil-svg -->
-<svg on:click|preventDefault="{handleClick}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="450px" height="460px" viewBox="0 0 450 460" enable-background="new 0 0 450 460" xml:space="preserve">
+<svg on:click|preventDefault="{handleClick}" bind:this={svg} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="450px" height="460px" viewBox="0 0 450 460" enable-background="new 0 0 450 460" xml:space="preserve">
 	<g>
 		<a xlink:href="#TO" class="estado" name="Tocantins" code="17">
 			<path stroke="#FFFFFF" stroke-width="1.0404" stroke-linecap="round" stroke-linejoin="round" d="M289.558,235.641

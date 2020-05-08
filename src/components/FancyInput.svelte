@@ -60,6 +60,12 @@
 		margin-top: 0;
 		color: #3951b2;
 	}
+
+	@media screen and (max-width: 500px) {
+		label {
+			font-size: 4vw;
+		}
+	}
 </style>
 
 <div>
