@@ -86,6 +86,12 @@
 	.dropright:hover > ul {
 		display: block;
 	}
+
+	@media (max-width: 485px) {
+		.row {
+			display: none;
+		}
+	}
 </style>
 
 <nav>

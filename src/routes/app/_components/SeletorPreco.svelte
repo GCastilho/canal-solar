@@ -12,6 +12,7 @@
 	form > * {
 		height: 40px;
 		margin-left: 5px;
+		margin-top: 5px;
 		font-size: larger;
 	}
 

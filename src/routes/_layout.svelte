@@ -17,6 +17,12 @@
 		margin: 0 auto;
 		box-sizing: border-box;
 	}
+
+	@media (max-width: 485px) {
+		main {
+			padding: 1em;
+		}
+	}
 </style>
 
 <Header {segment}/>
