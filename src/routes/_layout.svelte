@@ -2,11 +2,21 @@
 	<title>Canal Solar</title>
 </svelte:head>
 
-<script>
-	import Nav from '../components/Nav.svelte';
-	import Header from '../components/Header/index.svelte';
+<script context="module">
+	import { getTree } from '../utils/categories'
 
-	export let segment;
+	export async function preload() {
+		return {
+			navTree: await getTree()
+		}
+	}
+</script>
+
+<script>
+	import Header from '../components/Header/index.svelte'
+
+	export let segment
+	export let navTree
 </script>
 
 <style>
@@ -20,8 +30,7 @@
 	}
 </style>
 
-<Header {segment}/>
-<!--<Nav {segment}/>-->
+<Header {navTree} {segment} />
 
 <main>
 	<slot></slot>

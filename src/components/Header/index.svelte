@@ -1,9 +1,19 @@
 <script>
-	import TopImage from './TopImage.svelte';
-	import Nav from './Nav.svelte';
+	import TopImage from './TopImage.svelte'
+	import Nav from './Nav.svelte'
 
-	export let segment;
+	export let navTree = []
 </script>
 
+<style>
+	nav {
+		background-color: #333333;
+		--dropmenu-background-color: #f9f9f9
+	}
+</style>
+
 <TopImage />
-<Nav {segment}/>
+
+<nav>
+	<Nav items={navTree} />
+</nav>

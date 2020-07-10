@@ -3,7 +3,7 @@
 	export let link
 	export let thumbnail
 
-	const { src, alt } = thumbnail
+	const { src } = thumbnail
 </script>
 
 <style>
@@ -34,7 +34,7 @@
 
 <a href={link}>
 	<figure>
-		<img {src} {alt}>
+		<img {src} alt={title}>
 		<figcaption>{title}</figcaption>
 	</figure>
 </a>

@@ -5,33 +5,49 @@
 </svelte:head>
 
 <script>
-	import { onMount } from 'svelte'
+	export let title = ''
+	export let date = ''
+	export let content = ''
+	export let author = { name: '', url: '' }
+	export let category = { link: '', name: '' }
+	export let thumbnail = { src: '' }
 
-	export let url = ''
-
-	let fetchArticle
-	onMount(async () => {
-		const module = await import('../utils/fetchK2Article.js')
-		fetchArticle = module.default
+	date = new Date(date).toLocaleDateString('pt-BR', {
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric'
 	})
 </script>
 
 <style>
-	h2 {
-		text-align: center;
+	.itemCategory {
+		margin-bottom: 15px;
+	}
+
+	.metaInfo {
+		font-size: small;
+	}
+
+	.metaInfo a {
+		color: black;
+		font-weight: bold;
+	}
+
+	.metaInfo span {
+		margin-left: 10px;
 	}
 </style>
 
-<!-- Esse if garante que o codigo não será executado em SSR -->
-{#if fetchArticle}
-	{#await fetchArticle(url)}
-	<h2>Fetching article...</h2>
-	{:then content}
-		<div id="k2Content">
-			{@html content}
-		</div>
-	{:catch err}
-		<h2>Error fetching article:</h2>
-		<p>{err}</p>
-	{/await}
-{/if}
+<div id="k2Content">
+	<div class="itemCategory">
+		<a href={category.link}>{category.name}</a>
+	</div>
+	<h1>{title}</h1>
+	<div class="metaInfo">
+		<!-- TODO: href apontar p/ página do autor e lá ter a url dele -->
+		Por: <a href={author.url}>{author.name}</a>
+		<span>{date}</span>
+	</div>
+	<img src={thumbnail.src} alt={title}>
+	{@html content}
+</div>

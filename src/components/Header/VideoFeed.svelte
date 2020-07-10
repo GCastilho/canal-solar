@@ -1,6 +1,8 @@
 <script>
 	import VideoCard from './VideoCard.svelte'
-	import fetchFeed from '../../utils/fetchXmlFeed.js'
+	import { get } from '../../utils/posts'
+
+	const feed = get(10).then(p => p.slice(0, 4))
 </script>
 
 <style>
@@ -15,7 +17,7 @@
 	}
 </style>
 
-{#await fetchFeed('index.php/videos?format=feed', 4)}
+{#await feed}
 	<p>Fetching video feed</p>
 {:then videoFeed}
 	<div class="grid">

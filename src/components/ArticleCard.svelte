@@ -1,12 +1,12 @@
 <script>
 	export let title = ''
 	export let link = ''
-	export let pubDate = ''
-	export let author = { name: '', link: '' }
+	export let date = ''
+	export let author = { name: '', url: '' }
 	export let category = { link: '', name: '' }
-	export let thumbnail = { src: '', alt: '' }
+	export let thumbnail = { src: '' }
 
-	const { src, alt } = thumbnail
+	const { src } = thumbnail
 </script>
 
 <style>
@@ -62,16 +62,17 @@
 </style>
 
 <div class="articleCard">
-	<a href={link}>
-		<img {src} {alt}>
+	<a rel="prefetch" href={link}>
+		<img {src} alt={title}>
 		<div class="itemCategory">
 			<a href={category.link}>{category.name}</a>
 		</div>
 		<div class="itemHeader">
 			<h3>{title}</h3>
 			<div class="metaInfo">
-				<span><a href={author.link}><b>{author.name}</b></a></span>
-				<span>{pubDate}</span>
+				<!-- TODO: href apontar p/ página do autor e lá ter a url dele -->
+				<span><a href={author.url}><b>{author.name}</b></a></span>
+				<span>{date}</span>
 			</div>
 		</div>
 	</a>
